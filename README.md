@@ -1,6 +1,8 @@
 # vue-node-wechat
 
-> Nuxt.js project
+## 已完成
+  1. [微信 Token 验证](#)
+  2. ...
 
 ## Build Setup
 
