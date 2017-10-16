@@ -11,8 +11,8 @@ const r = path => resolve(__dirname, path)
 const host = process.env.HOST || '127.0.0.1'
 const port = process.env.PORT || 3100
 
-// 添加中间件
-const MIDDLEWARES = ['router']
+// 添加中间件 ./middlewares/.....
+const MIDDLEWARES = ['database', 'router']
 
 class Server {
     constructor() {
