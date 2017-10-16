@@ -61,7 +61,7 @@ export default class Wechat {
         }
 
         const expiresIn = data.expires_in
-        const noew = (new Date().getTime())
+        const now = (new Date().getTime())
 
         if (now < expiresIn) {
             return true
