@@ -11,8 +11,7 @@
 </template>
 
 <style scoped>
-.title
-{
+.title {
   margin: 50px 0;
 }
 </style>

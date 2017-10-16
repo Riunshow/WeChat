@@ -1,9 +1,9 @@
 # vue-node-wechat
 
 ## 已完成
-  1. [微信 Token 验证](#)
-  2. ...
-
+  1. 微信 Token 验证
+  2. <del>获取 access_token</del>
+  3. ...
 ## Build Setup
 
 ``` bash
