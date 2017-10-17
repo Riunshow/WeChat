@@ -20,6 +20,7 @@ class Server {
         this.useMiddleWares(this.app)(MIDDLEWARES)
     }
 
+
     useMiddleWares(app) {
         // 返回一个绝对路径
         return R.map(R.compose(
