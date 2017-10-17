@@ -8,7 +8,6 @@ export const router = app => {
 
     router.all('/wechat-hear', wechatMiddle(config.wechat, reply))
 
-    app
-        .use(router.routes())
-        .use(router.allowedMethods())
+    app.use(router.routes())
+    app.use(router.allowedMethods())
 }
