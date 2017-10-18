@@ -4,8 +4,9 @@
   1. 微信 Token 验证
   2. 获取 access_token
   3. 处理微信消息
-  4. <del>多媒体与图文素材接口</del>
-  5. ...
+  4. 素材管理
+  5. <del>用户信息与标签管理</del>
+  6. ...
 ## Build Setup
 
 ``` bash
