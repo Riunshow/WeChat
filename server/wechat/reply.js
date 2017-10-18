@@ -3,6 +3,9 @@ const tip = '欢迎您，我的 master\n' + '<a href="http://123.207.154.174">we
 export default async(ctx, next) => {
     const message = ctx.weixin
 
+    console.log("ctx: ")
+    console.log(ctx)
+    console.log("---------------------");
     console.log(message)
     if (message.MsgType === 'event') {
         if (message.Event === 'subscribe') {

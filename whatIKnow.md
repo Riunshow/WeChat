@@ -42,15 +42,40 @@ A practical functional library for JavaScript programmers.
 ### path
   * [resolve]()
     * eg:
-      ```bash
-      import { resolve } from 'path'
-      ```
       ```javascript
+      import { resolve } from 'path'
       resolve([from ...], to)
       ```
       接收参数：
       * from 源路径
       * to 将被解析到绝对路径的字符串
+
+### xml2js
+  * [parseString]()
+    * eg:
+      ```javascript
+      import xml2js from 'xml2js'
+      let parseString = xml2js.parseString;
+      parseString(xml, {trim: true}, function (err,result) {
+      });
+      ```
+      接受参数：
+      * xml
+      * trim (default: false): Trim the whitespace at the beginning and end of text nodes.
+      * 回调函数
+
+### ejs
+  * [ejs]()
+    * eg:
+      ```javascript
+      import ejs from 'ejs'
+      const compiled = ejs.compile(tpl)
+      template(data);
+      ```
+      参数：
+      * tpl 为 xml
+      * 解析 xml
+
 
 ### ES7的Async/Await
   * eg:
@@ -78,3 +103,5 @@ A practical functional library for JavaScript programmers.
     2. await 表示在这里等待promise返回结果了，再继续执行。
     3. await 后面跟着的应该是一个promise对象（当然，其他返回值也没关系，只是会立即执行，不过那样就没有意义了…）
   > 引用来自 --> [这里](https://cnodejs.org/topic/5640b80d3a6aa72c5e0030b6)
+
+  > 阮一峰深入掌握 ECMAScript 6 异步编程 --> [这里](http://www.ruanyifeng.com/blog/2015/05/async.html)
