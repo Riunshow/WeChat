@@ -6,11 +6,10 @@ export default async(ctx, next) => {
     console.log("---------------------");
     console.log(message)
 
+    const fromUserName = message.FromUserName
+
     let mp = require('../wechat')
     let client = mp.getWechat()
-
-
-
 
     if (message.MsgType === 'event') {
         if (message.Event === 'subscribe') {
@@ -19,8 +18,13 @@ export default async(ctx, next) => {
             console.log('取消关注了');
         } else if (message.Event === 'LOCATION') {
             ctx.body = message.Latitude + ' : ' + message.Longitude
+        } else if (message.Event === 'view') {
+            ctx.body = message.EventKey + message.MenuId
+        } else if (message.Event === 'pic_sysphoto') {
+            ctx.body = message.Count + 'photo sent'
         }
     } else if (message.MsgType === 'text') {
+        // 回复 1， 2 时的测试
         if (message.Content === '1') {
             // const data = await client.handle('fetchUserList')
 
@@ -53,12 +57,21 @@ export default async(ctx, next) => {
 
             // const data = await client.handle('getTagList', 'oG6cE1AUFlcoBnHKBxBCaO3BbFJM')
 
-            const data = await client.handle('getUserInfo', 'oG6cE1AUFlcoBnHKBxBCaO3BbFJM', 'zh_CN')
+            const data = await client.handle('getUserInfo', fromUserName, 'zh_CN')
 
 
-            console.log(data)
+            // console.log(data)
+            ctx.body = JSON.stringify(data)
+
+        } else if (message.Content === '2') {
+            const menu = require('./menu').default
+            await client.handle('delMenu')
+            const menuData = await client.handle('createMenu', menu)
+            console.log(JSON.stringify(menuData))
         }
+
         ctx.body = message.Content
+
     } else if (message.MsgType === 'image') {
         ctx.body = {
             type: 'image',

@@ -25,6 +25,7 @@ const api = {
         count: base + 'material/get_materialcount?',
         batch: base + 'material/batchget_material?'
     },
+    // 标签
     tag: {
         create: base + 'tags/create?',
         fetch: base + 'tags/get?',
@@ -35,6 +36,7 @@ const api = {
         batchUnTag: base + 'tags/members/batchuntagging?',
         getTagList: base + 'tags/getidlist?'
     },
+    // 用户管理，用户信息管理
     user: {
         remark: base + 'user/info/updateremark?',
         info: base + 'user/info?',
@@ -44,6 +46,7 @@ const api = {
         batchBlackUsers: base + 'tags/members/batchblacklist?',
         batchUnblackUsers: base + 'tags/members/batchunblacklist?'
     },
+    // 菜单
     menu: {
         create: base + 'menu/create?',
         get: base + 'menu/get?',
@@ -467,6 +470,86 @@ export default class Wechat {
         const url = `${api.user.fetchUserList}access_token=${token}&next_openid=${openId || ''}`
 
         return { url: url }
+    }
+
+    /**
+     * 自定义菜单创建接口
+     * @param {*} token 
+     * @param {*} menu json 数据
+     */
+    createMenu(token, menu) {
+        const url = api.menu.create + 'access_token=' + token
+
+        return { method: 'POST', url: url, body: menu }
+    }
+
+    /**
+     * 自定义菜单查询接口
+     * @param {*} token 
+     */
+    getMenu(token) {
+        const url = api.menu.get + 'access_token=' + token
+
+        return { url: url }
+    }
+
+    /**
+     * 自定义菜单删除接口
+     * @param {*} token 
+     */
+    delMenu(token) {
+        const url = api.menu.del + 'access_token=' + token
+
+        return { url: url }
+    }
+
+    /**
+     * 创建个性化菜单
+     * @param {*} token 
+     * @param {*} menu 
+     * @param {*} rule 
+     */
+    addConditionMenu(token, menu, rule) {
+        const url = api.menu.addCondition + 'access_token=' + token
+        const form = {
+            button: menu,
+            matchrule: rule
+        }
+
+        return { method: 'POST', url: url, body: form }
+    }
+
+    /**
+     * 删除个性化菜单
+     * @param {*} token 
+     * @param {*} menuId 
+     */
+    delConditionMenu(token, menuId) {
+        const url = api.menu.delCondition + 'access_token=' + token
+        const form = {
+            menuid: menuId
+        }
+
+        return { method: 'POST', url: url, body: form }
+    }
+
+    /**
+     * 获取自定义菜单配置接口
+     * @param {*} token 
+     */
+    getCurrentMenuInfo(token) {
+        const url = api.menu.getInfo + 'access_token=' + token
+
+        return { url: url }
+    }
+
+    /**
+     * 获取api_ticket
+     * @param {*} ticket 
+     * @param {*} url 
+     */
+    sign(ticket, url) {
+        return sign(ticket, url)
     }
 
 }

@@ -52,7 +52,7 @@ function formatMessage(result) {
 }
 
 /**
- * 
+ * 解析模板
  * @param {*} content 回复的内容
  * @param {*} message 解析后的微信消息
  */
