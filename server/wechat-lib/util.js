@@ -1,5 +1,6 @@
 import xml2js from 'xml2js'
 import template from './tpl'
+import sha1 from 'sha1'
 
 function parseXML(xml) {
     return new Promise((resolve, reject) => {
@@ -11,7 +12,7 @@ function parseXML(xml) {
 }
 
 /**
- * 
+ * 格式化信息
  * @param {*} result 
  */
 function formatMessage(result) {
@@ -47,7 +48,6 @@ function formatMessage(result) {
 
         }
     }
-
     return message
 }
 
@@ -82,9 +82,83 @@ function tpl(content, message) {
     return template(info)
 }
 
+/**
+ * 生成随机字符串
+ */
+function createNonce() {
+    return Math.random().toString(36).substr(2, 15)
+}
+
+/**
+ * 创建时间戳
+ */
+function createTimestamp() {
+    return parseInt(new Date().getTime() / 1000, 0) + ''
+}
+
+/**
+ * 排序
+ * @param {*} args 
+ */
+function raw(args) {
+    let keys = Object.keys(args)
+    let newArgs = {}
+    let str = ''
+
+    keys = keys.sort()
+    keys.forEach((key) => {
+        newArgs[key.toLowerCase()] = args[key]
+    })
+
+    for (let k in newArgs) {
+        str += '&' + k + '=' + newArgs[k]
+    }
+
+    return str.substr(1)
+}
+
+/**
+ * 签名算法
+ * @param {*} nonce 
+ * @param {*} ticket 
+ * @param {*} timestamp 
+ * @param {*} url 
+ */
+function signIt(nonce, ticket, timestamp, url) {
+    const ret = {
+        jsapi_ticket: ticket,
+        nonceStr: nonce,
+        timestamp: timestamp,
+        url: url
+    }
+
+    const string = raw(ret)
+    const sha = sha1(string)
+
+    return sha
+}
+
+/**
+ * 调用签名算法
+ * @param {*} ticket 
+ * @param {*} url 
+ */
+function sign(ticket, url) {
+    const nonce = createNonce()
+    const timestamp = createTimestamp()
+    const signature = signIt(nonce, ticket, timestamp, url)
+
+    return {
+        noncestr: nonce,
+        timestamp: timestamp,
+        signature: signature
+    }
+}
+
 
 export {
     parseXML,
     formatMessage,
-    tpl
+    tpl,
+    sign
 }

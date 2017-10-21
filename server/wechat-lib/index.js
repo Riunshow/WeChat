@@ -3,6 +3,7 @@ import formstream from 'formstream'
 import fs from 'fs'
 import * as _ from 'lodash'
 import { resolve } from 'path'
+import { sign } from './util'
 
 
 const base = 'https://api.weixin.qq.com/cgi-bin/'
@@ -103,7 +104,7 @@ export default class Wechat {
         let data = await this.getAccessToken()
 
         // 判断是否合法，不合法则更新，合法则保存
-        if (!this.isValidAccessToken(data)) {
+        if (!this.isValidToken(data)) {
             data = await this.updateAccessToken()
         }
 
@@ -127,11 +128,36 @@ export default class Wechat {
         return data
     }
 
+    async fetchTicket(token) {
+        let data = await this.getTicket()
+
+        if (!this.isValidToken(data, 'ticket')) {
+            data = await this.updateTicket(token)
+        }
+
+        await this.saveTicket(data)
+
+        return data
+    }
+
+    async updateTicket(token) {
+        const url = api.ticket.get + '&access_token=' + token + '&type=jsapi'
+
+        let data = await this.request({ url: url })
+        const now = (new Date().getTime())
+        const expiresIn = now + (data.expires_in - 20) * 1000
+
+        data.expires_in = expiresIn
+
+        return data
+    }
+
+
     /**
      * 判断 access_token 是否合法
      * @param {*} data 
      */
-    isValidAccessToken(data) {
+    isValidToken(data) {
         if (!data || !data.access_token || !data.expires_in) {
             return false
         }
@@ -544,7 +570,7 @@ export default class Wechat {
     }
 
     /**
-     * 获取api_ticket
+     * 获取api_ticket,实现签名算法
      * @param {*} ticket 
      * @param {*} url 
      */
