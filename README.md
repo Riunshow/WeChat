@@ -15,6 +15,7 @@
   8. 实现微信 JS-SDK 权限接入
       * 记 js-sdk 的坑，配好了js安全域名，调试时仍然报invalid url domain，如果调用js的域名是二级域名，而在JS接口安全域名里面没有配置该二级域名，那么可以直接配置成主域名。比如二级域名是weixin.test.com,那么JS接口安全域名可以配置成test.com.
       * 如果是要命的invalid signature，查看[这个](https://segmentfault.com/q/1010000002520634),但毛貌似都没有实际的意义，仔细看一下微信的官方文档吧[点击这里](https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1421141115)
+      * 可以先判断是否是签名算法写的有问题，[点击这里](https://mp.weixin.qq.com/debug/cgi-bin/sandbox?t=jsapisign)微信 JS 接口签名校验工具
   9. <del>用户授权与用户个人资料获取</del>
   10. ...
 ## Build Setup
