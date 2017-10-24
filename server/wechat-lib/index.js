@@ -73,11 +73,12 @@ function statFile(filepath) {
 export default class Wechat {
     constructor(opts) {
         this.opts = Object.assign({}, opts)
-
         this.appID = opts.appID
         this.appSecret = opts.appSecret
         this.getAccessToken = opts.getAccessToken
         this.saveAccessToken = opts.saveAccessToken
+        this.getTicket = opts.getTicket
+        this.saveTicket = opts.saveTicket
 
         this.fetchAccessToken()
     }

@@ -18,6 +18,7 @@
     "source-map-support": "^0.4.15"
   },
   "devDependencies": {
+    "axios": "^0.17.0",
     "babel-eslint": "^7.1.1",
     "babel-preset-latest-node": "^0.2.2",
     "babel-preset-stage-3": "^6.24.1",

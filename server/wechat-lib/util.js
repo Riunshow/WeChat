@@ -125,6 +125,7 @@ function raw(args) {
  * @param {*} url 
  */
 function signIt(nonce, ticket, timestamp, url) {
+    console.log(url);
     const ret = {
         jsapi_ticket: ticket,
         nonceStr: nonce,
