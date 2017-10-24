@@ -17,7 +17,7 @@
       * 如果是要命的invalid signature，查看[这个](https://segmentfault.com/q/1010000002520634),但毛貌似都没有实际的意义，仔细看一下微信的官方文档吧[点击这里](https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1421141115)
       * 可以先判断是否是签名算法写的有问题，[点击这里](https://mp.weixin.qq.com/debug/cgi-bin/sandbox?t=jsapisign)微信 JS 接口签名校验工具
   9. <del>用户授权与用户个人资料获取</del>
-  10. ...
+  10. ......
 ## Build Setup
 
 ``` bash
