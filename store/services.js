@@ -23,6 +23,20 @@ class Services {
         return axios.get(`${baseUrl}/wechat-signature?url=${encodeURIComponent(url)}`)
     }
 
+    /**
+     * 这里发一个异步请求到 /wechat-oauth，拿到服务器获得的用户资料
+     * @return {
+     *   success: true,
+     *   user: {
+     *     nickname,
+     *     headurl,
+     *     ...
+     *   }
+     * }
+     */
+    getWechatOAuth(url) {
+        return axios.get(`${baseUrl}/wechat-oauth?url=${encodeURIComponent(url)}`)
+    }
 }
 
 export default new Services()

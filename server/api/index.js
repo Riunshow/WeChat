@@ -2,8 +2,9 @@
  * 收集暴露出去的 API
  */
 
-import { getSignatureAsync } from './wechat'
+import { getSignatureAsync, getAuthorizeURL } from './wechat'
 
 export {
-    getSignatureAsync
+    getSignatureAsync,
+    getAuthorizeURL
 }
