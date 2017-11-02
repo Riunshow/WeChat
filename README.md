@@ -20,8 +20,9 @@
         * 可以先判断是否是签名算法写的有问题，[点击这里](https://mp.weixin.qq.com/debug/cgi-bin/sandbox?t=jsapisign)微信 JS 接口签名校验工具
     9. 用户授权与用户个人资料获取
   * 公众号开发
-    1. <del>利用 [RAP](http://rapapi.org/org/index.do) Mock 数据接口测试</del>
-    2. ...
+    1. 利用 [RAP](http://rapapi.org/org/index.do) Mock 数据接口测试
+    2. <del>开发首页</del>
+    3. ...
 ## Build Setup
 
 ``` bash
