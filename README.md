@@ -21,8 +21,9 @@
     9. 用户授权与用户个人资料获取
   * 公众号开发
     1. 利用 [RAP](http://rapapi.org/org/index.do) Mock 数据接口测试
-    2. <del>开发首页</del>
-    3. ...
+    2. 开发人物首页
+    3. <del>开发首页</del>
+    4. ...
 ## Build Setup
 
 ``` bash

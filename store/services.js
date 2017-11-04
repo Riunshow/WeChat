@@ -1,6 +1,7 @@
 import axios from 'axios'
 
 const baseUrl = ''
+const apiUrl = 'http://rapapi.org/mockjsdata/28398'
 
 class Services {
 
@@ -36,6 +37,18 @@ class Services {
      */
     getWechatOAuth(url) {
         return axios.get(`${baseUrl}/wechat-oauth?url=${encodeURIComponent(url)}`)
+    }
+
+    fetchHouses() {
+        return axios.get(`${apiUrl}/wiki/houses`)
+    }
+
+    fetchCities() {
+        return axios.get(`${apiUrl}/wiki/cities`)
+    }
+
+    fetchCharacters() {
+        return axios.get(`${apiUrl}/wiki/characters`)
     }
 }
 

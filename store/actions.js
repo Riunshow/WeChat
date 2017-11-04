@@ -10,8 +10,27 @@ export default {
         return Services.getWechatOAuth(url)
     },
 
-    // setAuthUser({ commit }, authUser) {
-    //     commit('SET_AUTHUSER', authUser)
-    // },
+    async fetchHouses({ state }) {
+        const res = await Services.fetchHouses()
+
+        state.houses = res.data[0].data
+        return res
+    },
+
+    async fetchCities({ state }) {
+        const res = await Services.fetchCities()
+
+        state.cities = res.data.data
+
+        return res
+    },
+
+    async fetchCharacters({ state }) {
+        const res = await Services.fetchCharacters()
+
+        state.characters = res.data.data
+        console.log(res);
+        return res
+    }
 
 }

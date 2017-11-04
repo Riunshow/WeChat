@@ -1,8 +1,6 @@
-<template>
-  <section class="container">
-    <img src="../static/img/logo.png" alt="Nuxt.js Logo" class="logo" />
-  
-  </section>
+<template lang='pug'>
+.container
+
 </template>
 
 <script>
@@ -42,20 +40,3 @@
     }
   }
 </script>
-
-<style scoped>
-  .title {
-    margin-top: 50px;
-  }
-  
-  .info {
-    font-weight: 300;
-    color: #9aabb1;
-    margin: 0;
-    margin-top: 10px;
-  }
-  
-  .button {
-    margin-top: 50px;
-  }
-</style>
