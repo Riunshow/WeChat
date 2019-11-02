@@ -37,7 +37,7 @@
         "koa-router": "^7.2.0",
         "koa-session": "^5.3.0",
         "lodash": "^4.17.4",
-        "mongoose": "^4.10.6",
+        "mongoose": "^5.7.5",
         "node-sass": "^4.5.3",
         "nuxt": "~1.0.0-alpha1",
         "promise-polyfill": "^6.0.2",
