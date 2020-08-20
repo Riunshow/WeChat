@@ -18,7 +18,7 @@
     "dependencies": {
         "awe-dnd": "^0.3.0",
         "axios": "^0.16.2",
-        "bcrypt": "^1.0.2",
+        "bcrypt": "^5.0.0",
         "cheerio": "^1.0.0-rc.2",
         "cheerio-advanced-selectors": "^1.1.1",
         "cloudinary": "^1.9.0",
