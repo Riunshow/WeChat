@@ -38,7 +38,7 @@
         "koa-session": "^5.3.0",
         "lodash": "^4.17.4",
         "mongoose": "^4.10.6",
-        "node-sass": "^4.5.3",
+        "node-sass": "^4.13.1",
         "nuxt": "~1.0.0-alpha1",
         "promise-polyfill": "^6.0.2",
         "pug": "^2.0.0-rc.2",
