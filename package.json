@@ -41,7 +41,7 @@
         "node-sass": "^4.5.3",
         "nuxt": "~1.0.0-alpha1",
         "promise-polyfill": "^6.0.2",
-        "pug": "^2.0.0-rc.2",
+        "pug": "^3.0.1",
         "qiniu": "^6.1.13",
         "qiniu-web-uploader": "^2.1.2",
         "ramda": "^0.24.1",
